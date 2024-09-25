@@ -1,0 +1,57 @@
+
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE chores (
+    chore_id SERIAL PRIMARY KEY,
+    description VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE assignments (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
+    chore_id INTEGER REFERENCES chores(chore_id) ON DELETE CASCADE,
+    week_start_date DATE NOT NULL,
+    due_date DATE NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'Pending',
+    completed_at TIMESTAMP NULL
+);
+
+
+
+ALTER TABLE assignments RENAME COLUMN id TO assignment_id;
+ALTER TABLE assignments ADD/DROP COLUMN name;
+
+
+INSERT INTO users (username, email, password) VALUES ('Ryan', 'ryanwmichaud@gmail.com', 'password');
+INSERT INTO users (username, email, password) VALUES ('Max', 'test@test.com', 'password');
+INSERT INTO users (username, email, password) VALUES ('Olivia', 'test1@test1.com', 'password');
+
+INSERT INTO chores (description, type) VALUES ('Take out garbage', 'weekly');
+INSERT INTO chores (description, type) VALUES ('Vacuum', 'weekly');
+INSERT INTO chores (description, type) VALUES ('Tidy up common space', 'weekly');
+INSERT INTO chores (description, type) VALUES ('Wash dirty rags', 'weekly');
+
+INSERT INTO chores (description, type) VALUES ('Dust', 'monthly');
+INSERT INTO chores (description, type) VALUES ('Clean windows', 'monthly');
+INSERT INTO chores (description, type) VALUES ('Mop', 'monthly');
+INSERT INTO chores (description, type) VALUES ('Recycle junk mail boxes', 'monthly');
+INSERT INTO chores (description, type) VALUES ('Clean microwave', 'monthly');
+INSERT INTO chores (description, type) VALUES ('Refrigerator', 'monthly');
+
+
+
+
+connect to db
+\c db_name 
+
+show tables
+\dt;
+
+describe table 
+\d table_name; 
