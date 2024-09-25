@@ -1,19 +1,30 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from dotenv import load_dotenv
-import os
+from flask_cors import CORS
 
-print("evv",os.getenv("FLASK_APP"))
+
 
 load_dotenv() #load environment variables from .env
 
 
 app = Flask(__name__)
+CORS(app)  #  CORS middleware
+
 
     
 
 @app.route("/")
 def hello_world(): 
-    return "<p>Helo</p>"
+    return "<p>Hello</p>"
 
+@app.route("/login", methods=['POST'])
+def login(): 
 
+    data = request.json
+    if data:
+        username = data.get('username')
+        password = data.get('password')
+        print('got', username, password)
+
+    return jsonify({"success": True})
 
