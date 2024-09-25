@@ -6,12 +6,14 @@ import Navbar from '../components/Navbar.js';
 
 const Login = ()=>{
 
+
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
     const {profile, setProfile} = useContext(GlobalContext);
-
+    const ip = process.env.REACT_APP_IP
 
 
     const navigate = useNavigate()
@@ -22,10 +24,9 @@ const Login = ()=>{
             username: username,
             password: password
         }
-        console.log(req)
 
         try{
-            const response = await fetch(`http://localhost:5000/login`, {
+            const response = await fetch(`http://${ip}:5000/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
