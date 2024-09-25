@@ -1,4 +1,6 @@
 import './App.css';
+import "./components/Navbar.css"
+import "./pages/Pages.css"
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
@@ -15,8 +17,8 @@ const App =  () => {
       <Router>
         <div>
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login/>} />
+            <Route path="/home" element={<Home/>} />
+            <Route path="/" element={<Login/>} />
           </Routes>
         </div>
       </Router>

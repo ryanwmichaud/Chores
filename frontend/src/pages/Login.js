@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import React, {useState, useContext } from 'react'
+import { GlobalContext } from './../GlobalContext.js'; 
+import Navbar from '../components/Navbar.js';
 
 
 const Login = ()=>{
@@ -7,6 +9,9 @@ const Login = ()=>{
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+
+    const {profile, setProfile} = useContext(GlobalContext);
+
 
 
     const navigate = useNavigate()
@@ -34,8 +39,9 @@ const Login = ()=>{
             if(!data.success){
                 console.log("failed login")
             }else{
-                //setProfile(username)
+                setProfile({username: req.username, email: null, userId: null})
                 console.log("successful login")
+                navigate("/home")
             }
                 
         }catch (error) {
@@ -48,13 +54,17 @@ const Login = ()=>{
 
     return(
         <div>
-            <form>
-                <label>Username</label>
-                <input type="text"  value={username}  onChange={(e) => setUsername(e.target.value)} required />
-                <label>Password</label>
-                <input type="password" value={password}  onChange={(e) => setPassword(e.target.value)} required />
-                <button onClick={handleLogin}> Login </button>
-            </form>
+            <Navbar></Navbar>
+            <div className='page'>
+                <form>
+                    <label>Username</label>
+                    <input type="text"  value={username}  onChange={(e) => setUsername(e.target.value)} required />
+                    <label>Password</label>
+                    <input type="password" value={password}  onChange={(e) => setPassword(e.target.value)} required />
+                    <button onClick={handleLogin}> Login </button>
+                </form>
+            </div>
+            
 
         </div>
     )

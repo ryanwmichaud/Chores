@@ -1,0 +1,24 @@
+.navbar{
+    background-color: rgb(105, 108, 197);
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;   
+    border-bottom: solid var(--border-color);
+}
+
+.navbar-content{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+    padding: 10px;
+    justify-content: space-between;
+
+}
+
+.nav-user{
+    position: absolute;
+    right: 20px;
+}

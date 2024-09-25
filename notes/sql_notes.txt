@@ -1,36 +1,37 @@
+Users table holds 
+    user_id 
+    username
+    password
+    email
+Chores table holds 
+    chore_id
+    description
+    type (monthly/weekly)
+Assignments table holds 
+    assignment_id
+    user_id
+    chore_id
+    date_assigned 
+    date_due
+    status
+    completed at (time)
+
+write a script to 
+    assign weekly chores every sunday 
+    assign montly chores on the first of the month  
+    rotate weekly and monthly chores on the first of the month
 
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE chores (
-    chore_id SERIAL PRIMARY KEY,
-    description VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE assignments (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
-    chore_id INTEGER REFERENCES chores(chore_id) ON DELETE CASCADE,
-    week_start_date DATE NOT NULL,
-    due_date DATE NOT NULL,
-    status VARCHAR(20) NOT NULL DEFAULT 'Pending',
-    completed_at TIMESTAMP NULL
-);
 
 
 
-ALTER TABLE assignments RENAME COLUMN id TO assignment_id;
-ALTER TABLE assignments ADD/DROP COLUMN name;
 
 
-INSERT INTO users (username, email, password) VALUES ('Ryan', 'ryanwmichaud@gmail.com', 'password');
-INSERT INTO users (username, email, password) VALUES ('Max', 'test@test.com', 'password');
-INSERT INTO users (username, email, password) VALUES ('Olivia', 'test1@test1.com', 'password');
+
+
+INSERT INTO users (username, email, password) VALUES ('Ryan', 'test@test.com', 'password');
+INSERT INTO users (username, email, password) VALUES ('Max', 'test1@test.com', 'password');
+INSERT INTO users (username, email, password) VALUES ('Olivia', 'test2@test.com', 'password');
 
 INSERT INTO chores (description, type) VALUES ('Take out garbage', 'weekly');
 INSERT INTO chores (description, type) VALUES ('Vacuum', 'weekly');
@@ -45,7 +46,9 @@ INSERT INTO chores (description, type) VALUES ('Clean microwave', 'monthly');
 INSERT INTO chores (description, type) VALUES ('Refrigerator', 'monthly');
 
 
-
+ALTER TABLE assignments RENAME COLUMN due_date TO date_due;
+ALTER TABLE assignments RENAME COLUMN start_date TO date_assigned;
+ALTER TABLE assignments ADD/DROP COLUMN name;
 
 connect to db
 \c db_name 

@@ -1,7 +1,7 @@
 
 import React, { createContext, useState } from 'react';
 
-const GlobalContext = createContext()
+export const GlobalContext = createContext()
 
 //provider for the context
 export const GlobalProvider = ({ children }) => {
@@ -14,4 +14,3 @@ export const GlobalProvider = ({ children }) => {
     </GlobalContext.Provider>
   );
 };
-
