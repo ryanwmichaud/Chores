@@ -15,7 +15,12 @@ const Chore: React.FC<ChoreProps> = ( {username, chore, assigned, due } )=>{
     const dateAssigned = new Date(assigned)
     const dateDue = new Date(due)
 
-    return <div className="chore" >
+    let overdue = false;
+    if (dateDue > new Date()){
+        overdue = true
+    }
+
+    return <div className={`chore ${overdue ? "pending" : "overdue"}`} >
             
         <div className='chore-title'>
             <p>{username}</p> 
@@ -36,7 +41,12 @@ const MyChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
     const dateAssigned = new Date(assigned)
     const dateDue = new Date(due)
 
-    return <div className="chore" >
+    let overdue = false;
+    if (dateDue > new Date()){
+        overdue = true
+    }
+
+    return <div className={`chore ${overdue ? "pending" : "overdue"}`} >
             
         <div className='chore-title'>
             <p>{chore}</p> 

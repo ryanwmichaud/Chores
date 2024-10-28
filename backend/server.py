@@ -65,23 +65,22 @@ def get_active_chores():
                    ON assignments.user_id = users.user_id 
                    LEFT JOIN chores 
                    ON chores.chore_id = assignments.chore_id
-                   WHERE status = 'Pending'""")
-    rows = cursor.fetchall()
+                   WHERE status = 'Pending'
+                   """)
+    data = cursor.fetchall()
 
     
     cursor.close()
     conn.close()
 
 
-    return(jsonify(rows))
+    return(jsonify(data))
 
 
 @app.route("/get-my-active-chores", methods=['Get'])
 @jwt_required()
 def get_my_active_chores():
-    print("sadfasdf  ")
     current_user = get_jwt_identity() 
-    print("user: ", current_user)
 
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -93,12 +92,12 @@ def get_my_active_chores():
                    WHERE username = %s AND status = 'Pending'
                    """
                    , (current_user,))
-    rows = cursor.fetchall()
+    data = cursor.fetchall()
 
     
     cursor.close()
     conn.close()
 
 
-    return(jsonify(rows))
+    return(jsonify(data))
 

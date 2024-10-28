@@ -75,6 +75,8 @@ INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
 
 
 
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+ VALUES (5, 11, '2024-09-01', '2024-09-31' );
 
 
 

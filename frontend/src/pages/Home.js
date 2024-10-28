@@ -115,7 +115,7 @@ const Home = ()=>{
                                 key={index}
                                 chore={chore[0]}
                                 assigned={chore[1]}
-                                due={chore[2]}
+                                due={chore[2]} 
                             >
                             </MyChore>
                 })}

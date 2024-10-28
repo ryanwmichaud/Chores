@@ -15,3 +15,12 @@
     margin-left: 3px;
     margin-right: 3px;
 }
+
+
+.pending{
+    background-color: #eec38c;
+}
+
+.overdue{
+    background-color: #af5f5f;
+}
