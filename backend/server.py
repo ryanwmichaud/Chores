@@ -64,7 +64,8 @@ def get_active_chores():
                    LEFT JOIN users 
                    ON assignments.user_id = users.user_id 
                    LEFT JOIN chores 
-                   ON chores.chore_id = assignments.chore_id""")
+                   ON chores.chore_id = assignments.chore_id
+                   WHERE status = 'Pending'""")
     rows = cursor.fetchall()
 
     
@@ -89,7 +90,7 @@ def get_my_active_chores():
                    ON assignments.user_id = users.user_id 
                    LEFT JOIN chores 
                    ON chores.chore_id = assignments.chore_id 
-                   WHERE username = %s
+                   WHERE username = %s AND status = 'Pending'
                    """
                    , (current_user,))
     rows = cursor.fetchall()

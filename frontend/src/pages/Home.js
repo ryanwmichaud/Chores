@@ -31,7 +31,7 @@ const Home = ()=>{
     useEffect(()=>{
 
         
-        const fetchChores = async ()=> {
+        const fetchActiveChores = async ()=> {
             try {
                 const response = await fetch(`http://${ip}:5000/get-active-chores`)
                 if (! response.ok){ 
@@ -46,7 +46,7 @@ const Home = ()=>{
             } 
         }
          
-        const fetchMyChores = async ()=> {
+        const fetchMyActiveChores = async ()=> {
             const token = localStorage.getItem('token')
             try {
                 const response = await fetch(`http://${ip}:5000/get-my-active-chores`, {
@@ -70,8 +70,8 @@ const Home = ()=>{
           
         
         
-        fetchChores()
-        fetchMyChores()
+        fetchActiveChores()
+        fetchMyActiveChores()
 
     }, []) 
 
