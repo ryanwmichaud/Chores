@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import React, {useState, useContext } from 'react'
+import React, {useState, useContext, useEffect } from 'react'
 import { GlobalContext } from './../GlobalContext.js'; 
-import Navbar from '../components/Navbar.js';
+import Navbar from '../components/Navbar.tsx';
 
 
 const Login = ()=>{
@@ -15,8 +15,10 @@ const Login = ()=>{
     const {profile, setProfile} = useContext(GlobalContext);
     const ip = process.env.REACT_APP_IP
 
-
     const navigate = useNavigate()
+
+    
+
 
     const handleLogin = async (e)=> {
         e.preventDefault()
@@ -31,7 +33,7 @@ const Login = ()=>{
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(req),
+                body: JSON.stringify(req)
             })
             if (!response.ok) { 
                 throw new Error('network response not ok')
@@ -40,7 +42,9 @@ const Login = ()=>{
             if(!data.success){
                 console.log("failed login")
             }else{
-                setProfile({username: req.username, email: null, userId: null})
+                setProfile(req.username)
+                console.log(data)
+                localStorage.setItem('token', data.token)
                 console.log("successful login")
                 navigate("/home")
             }
@@ -59,10 +63,10 @@ const Login = ()=>{
             <div className='page'>
                 <form>
                     <label>Username</label>
-                    <input type="text"  value={username}  onChange={(e) => setUsername(e.target.value)} required />
-                    <label>Password</label>
-                    <input type="password" value={password}  onChange={(e) => setPassword(e.target.value)} required />
-                    <button onClick={handleLogin}> Login </button>
+                    <input name='username' type="text"  value={username}  onChange={(e) => setUsername(e.target.value)} required />
+                    <label> Password</label>
+                    <input name='password' type="password" value={password}  onChange={(e) => setPassword(e.target.value)} required />
+                    <button name='submit' onClick={handleLogin}> Login </button>
                 </form>
             </div>
             

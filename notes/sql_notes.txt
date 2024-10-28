@@ -58,3 +58,31 @@ show tables
 
 describe table 
 \d table_name; 
+
+
+
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+ VALUES (5, 11, '2024-10-01', '2024-10-31' );
+
+ INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+ VALUES (8, 6, '2024-10-01', '2024-10-31' );
+
+ INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+ VALUES (8, 5, '2024-10-01', '2024-10-31' );
+
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+ VALUES (9, 8, '2024-10-01', '2024-10-31' );
+
+
+
+
+
+
+
+psql -d postgres -U postgres
+
+
+
+
+
+

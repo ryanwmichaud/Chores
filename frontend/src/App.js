@@ -2,10 +2,11 @@ import './App.css';
 import "./components/Navbar.css"
 import "./pages/Pages.css"
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Login from './pages/Login'
-import Home from './pages/Home'
+import React from 'react'
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Login from './pages/Login.js'
+import Home from './pages/Home.js'
 import {GlobalProvider} from './GlobalContext.js'
 
 

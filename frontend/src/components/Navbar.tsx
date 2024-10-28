@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { GlobalContext } from './../GlobalContext.js'; 
+import { GlobalContext } from '../GlobalContext.js'; 
 
 
 const Navbar = ()=>{
@@ -11,7 +11,7 @@ const Navbar = ()=>{
         <div className='navbar'>
             <div className='navbar-content'>
                 <p>Chores</p>
-                <p>{profile.username}</p>
+                <p id="profile_username">{profile.username}</p>
             </div>
             
 
