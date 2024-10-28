@@ -110,7 +110,8 @@ def login():
 
     conn = get_db_connection() 
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM users WHERE username = %s AND password = %s', (username, password))
+    cursor.execute('SELECT * FROM users WHERE username = %s AND password = %s'
+                   , (username, password))
     user = cursor.fetchone()
     cursor.close()
     conn.close()
@@ -118,7 +119,7 @@ def login():
         token = create_access_token(identity=username)
         return jsonify({"success": True, "token": token})
     else:
-        return jsonify({"success": False}), 400
+        return jsonify({"success": False})
 
 
 @app.route("/get-active-chores", methods=['GET'])

@@ -25,19 +25,17 @@ const Home = ()=>{
 
     useEffect(()=>{
 
+        const fethData = async () =>{
+            await fetchActiveChores()
+            await fetchMyActiveChores()
+            await fetchMyCompletedChores()
+        }
+        fethData()
         
-        fetchActiveChores()
-        fetchMyActiveChores()
-        fetchMyCompletedChores()
 
     }, []) 
 
-    useEffect(()=>{
 
-        console.log("all", activeChores)
-        console.log("my", myActiveChores)
-
-    }, [activeChores, myActiveChores]) 
 
 
  

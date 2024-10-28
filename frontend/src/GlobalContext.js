@@ -71,12 +71,79 @@ const fetchMyCompletedChores = async ()=> {
     } 
 }
 
+const markUnfinished = async (chore, assigned, due) => {
+
+  const token = localStorage.getItem('token')
+  const requestBody = {
+      chore,
+      assigned,
+      due,
+    }
+
+  try{
+      const response = await fetch(`http://${ip}:5000/mark-unfinished` ,{
+          method: 'POST',
+          headers:{
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify(requestBody)
+      })
+      if (!response.ok){
+          throw new Error("network response not ok")
+      }
+      const result = await response.json()
+      console.log(result)
+      fetchActiveChores()
+      fetchMyActiveChores()
+      fetchMyCompletedChores()
+
+  }catch(error){
+      console.error("Error: ", error)
+  }
+
+}
+
+const markFinished = async (chore, assigned, due) => {
+
+  const token = localStorage.getItem('token')
+  const requestBody = {
+      chore,
+      assigned,
+      due,
+    }
+
+
+  try{
+      const response = await fetch(`http://${ip}:5000/mark-finished` ,{
+          method: 'POST',
+          headers:{
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify(requestBody)
+      })
+      if (!response.ok){
+          throw new Error("network response not ok")
+      }
+      const result = await response.json()
+      console.log(result)
+      fetchActiveChores()
+      fetchMyActiveChores()
+      fetchMyCompletedChores()
+
+  }catch(error){
+      console.error("Error: ", error)
+  }
+
+}
 
   return (
     <GlobalContext.Provider value={{ profile, setProfile, 
                                   fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores,
                                   activeChores, myActiveChores, myCompletedChores,
-                                  setActiveChores, setMyActiveChores, setMyCompletedChores }}>
+                                  setActiveChores, setMyActiveChores, setMyCompletedChores,
+                                  markFinished, markUnfinished}}>
       {children}
     </GlobalContext.Provider>
   );

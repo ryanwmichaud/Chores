@@ -40,7 +40,7 @@ const Login = ()=>{
             }
             const data = await response.json()
             if(!data.success){
-                console.log("failed login")
+                setError("invalid username/password")
             }else{
                 setProfile(req.username)
                 localStorage.setItem('token', data.token)
@@ -67,6 +67,7 @@ const Login = ()=>{
                     <input name='password' type="password" value={password}  onChange={(e) => setPassword(e.target.value)} required />
                     <button name='submit' onClick={handleLogin}> Login </button>
                 </form>
+                <p>{error}</p>
             </div>
             
 

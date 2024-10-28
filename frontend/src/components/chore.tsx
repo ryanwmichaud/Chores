@@ -51,43 +51,12 @@ const Chore: React.FC<ChoreProps> = ( {username, chore, assigned, due } )=>{
 
 const MyChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
 
-    const{fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores} = useContext(GlobalContext)
+    const{fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores, markFinished} = useContext(GlobalContext)
 
-    const markFinished = async (chore: string, assigned: string, due: string) => {
-
-        const token = localStorage.getItem('token')
-        const requestBody = {
-            chore,
-            assigned,
-            due,
-          }
     
-    
-        try{
-            const response = await fetch(`http://10.0.0.76:5000/mark-finished` ,{
-                method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(requestBody)
-            })
-            if (!response.ok){
-                throw new Error("network response not ok")
-            }
-            const result = await response.json()
-            console.log(result)
-            fetchActiveChores()
-            fetchMyActiveChores()
-            fetchMyCompletedChores()
-
-        }catch(error){
-            console.error("Error: ", error)
-        }
-    
-    }
 
     const dateAssigned = new Date(assigned)
+    console.log(assigned, "to: ",dateAssigned.toLocaleDateString())
     const dateDue = new Date(due)
 
     let overdue = false;
@@ -111,46 +80,15 @@ const MyChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
 const MyCompletedChore: React.FC<CompletedChoreProps> = ( {chore, assigned, due, completed } )=>{
 
 
-    const{fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores} = useContext(GlobalContext)
+    const{fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores, markUnfinished} = useContext(GlobalContext)
 
-    const markUnfinished = async (chore: string, assigned: string, due: string) => {
-
-        const token = localStorage.getItem('token')
-        const requestBody = {
-            chore,
-            assigned,
-            due,
-          }
     
-        try{
-            const response = await fetch(`http://10.0.0.76:5000/mark-unfinished` ,{
-                method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify(requestBody)
-            })
-            if (!response.ok){
-                throw new Error("network response not ok")
-            }
-            const result = await response.json()
-            console.log(result)
-            fetchActiveChores()
-            fetchMyActiveChores()
-            fetchMyCompletedChores()
-
-        }catch(error){
-            console.error("Error: ", error)
-        }
-    
-    }
     const dateAssigned = new Date(assigned)
     const dateDue = new Date(due)
-    const timeCompleted = new Date(completed)
+    const dateCompleted = new Date(completed)
 
     let doneLate = false;
-    if (timeCompleted > dateDue){
+    if (dateCompleted > dateDue){
         doneLate = true
     }
 
@@ -162,7 +100,7 @@ const MyCompletedChore: React.FC<CompletedChoreProps> = ( {chore, assigned, due,
             
         <p>assigned: {dateAssigned.toLocaleDateString()}</p> 
         <p>due: {dateDue.toLocaleDateString() }</p> 
-        <p>completed: {timeCompleted.toLocaleTimeString()}</p>
+        <p>completed: {dateCompleted.toLocaleDateString()}</p>
         <button onClick={()=>{markUnfinished(chore, assigned, due)}}>Unfinished</button>
     </div>
     
