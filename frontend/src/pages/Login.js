@@ -43,7 +43,6 @@ const Login = ()=>{
                 console.log("failed login")
             }else{
                 setProfile(req.username)
-                console.log(data)
                 localStorage.setItem('token', data.token)
                 console.log("successful login")
                 navigate("/home")

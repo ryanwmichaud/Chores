@@ -2,22 +2,17 @@ import React, {useContext, useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../GlobalContext.js'; 
 import Navbar from '../components/Navbar.tsx';
-import {Chore, MyChore} from '../components/chore.tsx';
+import {Chore, MyChore, MyCompletedChore} from '../components/chore.tsx';
 
 
 const Home = ()=>{
 
     const ip = process.env.REACT_APP_IP
 
-    const {profile, setProfile} = useContext(GlobalContext);
+    const {profile, 
+        fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores,
+        activeChores, myActiveChores, myCompletedChores } = useContext(GlobalContext);
     
-
-    const [activeChores, setActiveChores] = useState([])
-    const [myActiveChores, setMyActiveChores] = useState([])
-
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(true)
-    console.log(error)
 
     
     const navigate = useNavigate()
@@ -31,47 +26,9 @@ const Home = ()=>{
     useEffect(()=>{
 
         
-        const fetchActiveChores = async ()=> {
-            try {
-                const response = await fetch(`http://${ip}:5000/get-active-chores`)
-                if (! response.ok){ 
-                    throw new Error('network response was not ok')
-                }
-                const data = await response.json() 
-                setActiveChores(data)
-            } catch (error) {
-                setError(error.message)
-            } finally { 
-                setLoading(false) 
-            } 
-        }
-         
-        const fetchMyActiveChores = async ()=> {
-            const token = localStorage.getItem('token')
-            try {
-                const response = await fetch(`http://${ip}:5000/get-my-active-chores`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                }) 
-                if (! response.ok){ 
-                    throw new Error('network response was not ok')
-                }
-                const data = await response.json() 
-                setMyActiveChores(data)
-            } catch (error) {
-                setError(error.message)
-            } finally {
-                setLoading(false) 
-            } 
-        }
-        
-          
-        
-        
         fetchActiveChores()
         fetchMyActiveChores()
+        fetchMyCompletedChores()
 
     }, []) 
 
@@ -86,12 +43,14 @@ const Home = ()=>{
  
 
     return(
-        <div>
+        <div> 
             <Navbar></Navbar>
             <div className='page'>Home
   
+        {/*
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
+        */}
 
             <div>
                 <p>Active Chores</p>
@@ -122,6 +81,19 @@ const Home = ()=>{
 
             </div>
             
+            <div>
+                <p>My Completed Chores</p>
+                {myCompletedChores.map((chore, index)=>{
+                    return  <MyCompletedChore 
+                                key={index}
+                                chore={chore[0]}
+                                assigned={chore[1]}
+                                due={chore[2]} 
+                            >
+                            </MyCompletedChore>
+                })}
+
+            </div>
 
 
         

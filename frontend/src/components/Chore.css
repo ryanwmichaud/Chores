@@ -17,10 +17,15 @@
 }
 
 
+
 .pending{
     background-color: #eec38c;
 }
 
 .overdue{
     background-color: #af5f5f;
+}
+
+.complete{
+    background-color: #8eb899;
 }

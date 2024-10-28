@@ -50,6 +50,7 @@ ALTER TABLE assignments RENAME COLUMN due_date TO date_due;
 ALTER TABLE assignments RENAME COLUMN start_date TO date_assigned;
 ALTER TABLE assignments ADD/DROP COLUMN name;
 
+
 connect to db
 \c db_name 
 
@@ -76,7 +77,7 @@ INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
 
 
 INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
- VALUES (5, 11, '2024-09-01', '2024-09-31' );
+ VALUES (5, 11, '2024-09-01', '2024-09-30' );
 
 
 
