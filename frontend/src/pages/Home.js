@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../GlobalContext.js'; 
 import Navbar from '../components/Navbar.tsx';
+import {Chore, MyChore} from '../components/chore.tsx';
 
 
 const Home = ()=>{
@@ -20,7 +21,7 @@ const Home = ()=>{
 
     
     const navigate = useNavigate()
-    if (profile.username === null){
+    if (profile === null){
         navigate("/")
     }
 
@@ -95,10 +96,14 @@ const Home = ()=>{
             <div>
                 <p>Active Chores</p>
                 {activeChores.map((chore, index)=>{
-                    return  <div key={index}>
-                                <p>{chore[0] }</p> 
-                                <p>{chore[1] }</p> 
-                            </div>
+                    return  <Chore 
+                                key={index}
+                                username={chore[0]} 
+                                chore={chore[1]}
+                                assigned={chore[2]}
+                                due={chore[3]}
+                            >
+                            </Chore>
                 })} 
 
             </div>
@@ -106,9 +111,13 @@ const Home = ()=>{
             <div>
                 <p>My Active Chores</p>
                 {myActiveChores.map((chore, index)=>{
-                    return  <div key={index}>
-                                <p>{chore[0]}</p> 
-                            </div>
+                    return  <MyChore 
+                                key={index}
+                                chore={chore[0]}
+                                assigned={chore[1]}
+                                due={chore[2]}
+                            >
+                            </MyChore>
                 })}
 
             </div>

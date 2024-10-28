@@ -11,7 +11,7 @@ const Navbar = ()=>{
         <div className='navbar'>
             <div className='navbar-content'>
                 <p>Chores</p>
-                <p id="profile_username">{profile.username}</p>
+                <p id="profile_username">{profile}</p>
             </div>
             
 

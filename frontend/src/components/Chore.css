@@ -1,0 +1,17 @@
+
+
+.chore{
+    border: solid black 2px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.chore-title{
+    display: flex;
+    flex-direction: row;
+}
+
+.title-divider{
+    margin-left: 3px;
+    margin-right: 3px;
+}
