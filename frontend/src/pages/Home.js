@@ -87,8 +87,9 @@ const Home = ()=>{
                     return  <MyCompletedChore 
                                 key={index}
                                 chore={chore[0]}
-                                assigned={chore[1]}
+                                assigned={chore[1]} 
                                 due={chore[2]} 
+                                completed={chore[3]}
                             >
                             </MyCompletedChore>
                 })}

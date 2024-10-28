@@ -9,8 +9,18 @@ interface ChoreProps {
     chore: string;
     assigned: string; 
     due: string;     
+    completed?: string
 }
 
+
+interface CompletedChoreProps {
+    key: number; 
+    username?: string;
+    chore: string;
+    assigned: string; 
+    due: string;     
+    completed: string
+}
 
 
 const Chore: React.FC<ChoreProps> = ( {username, chore, assigned, due } )=>{
@@ -98,7 +108,7 @@ const MyChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
     
 }
 
-const MyCompletedChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
+const MyCompletedChore: React.FC<CompletedChoreProps> = ( {chore, assigned, due, completed } )=>{
 
 
     const{fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores} = useContext(GlobalContext)
@@ -137,13 +147,14 @@ const MyCompletedChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
     }
     const dateAssigned = new Date(assigned)
     const dateDue = new Date(due)
+    const timeCompleted = new Date(completed)
 
-    let overdue = false;
-    if (dateDue > new Date()){
-        overdue = true
+    let doneLate = false;
+    if (timeCompleted > dateDue){
+        doneLate = true
     }
 
-    return <div className="chore  complete" >
+    return <div className={`chore ${doneLate ? "completed-late" : "completed"}` }>
             
         <div className='chore-title'>
             <p>{chore}</p> 
@@ -151,6 +162,7 @@ const MyCompletedChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
             
         <p>assigned: {dateAssigned.toLocaleDateString()}</p> 
         <p>due: {dateDue.toLocaleDateString() }</p> 
+        <p>completed: {timeCompleted.toLocaleTimeString()}</p>
         <button onClick={()=>{markUnfinished(chore, assigned, due)}}>Unfinished</button>
     </div>
     

@@ -26,6 +26,9 @@
     background-color: #af5f5f;
 }
 
-.complete{
-    background-color: #8eb899;
+.completed{
+    background-color: #57a76d;
+}
+.completed-late{
+    background-color: #b9e4be;
 }
