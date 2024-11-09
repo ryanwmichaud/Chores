@@ -60,7 +60,7 @@ const Login = ()=>{
         <div>
             <Navbar></Navbar>
             <div className='page'>
-                <form>
+                <form className='login-form'>
                     <label>Username</label>
                     <input name='username' type="text"  value={username}  onChange={(e) => setUsername(e.target.value)} required />
                     <label> Password</label>
