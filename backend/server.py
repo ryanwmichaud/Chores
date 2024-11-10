@@ -140,15 +140,40 @@ def get_active_chores():
     cursor.close()
     conn.close()
 
-
     return(jsonify(data))
+
+@app.route("/get-leaderboard", methods=['GET'])
+def get_leaderboard():
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT
+            users.username,
+            SUM(
+                CASE
+                    WHEN assignments.completed_at IS NULL THEN 0
+                    WHEN assignments.completed_at <= assignments.date_due THEN 10
+                    ELSE 5
+                END
+            ) AS score
+        FROM assignments
+        JOIN users ON assignments.user_id = users.user_id
+        WHERE assignments.completed_at >= NOW() - INTERVAL '30 days'
+        GROUP BY users.user_id
+        ORDER BY score DESC;
+    """) 
+    results = cursor.fetchall()
+    print(results)
+    return jsonify({'results': results})
+
 
 
 @app.route("/get-my-active-chores", methods=['Get'])
 @jwt_required()
 def get_my_active_chores():
     current_user = get_jwt_identity() 
-
+    
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("""SELECT description, date_assigned, date_due 

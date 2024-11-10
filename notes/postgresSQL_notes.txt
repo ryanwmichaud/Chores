@@ -14,15 +14,12 @@ Assignments table holds
     date_assigned 
     date_due
     status
-    completed at (time)
+    completed_at 
 
 write a script to 
     assign weekly chores every sunday 
     assign montly chores on the first of the month  
     rotate weekly and monthly chores on the first of the month
-
-
-
 
 
 INSERT INTO chores (description, type) VALUES ('Take out garbage', 'weekly');
@@ -51,7 +48,6 @@ INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
 
 
 
-psql -d postgres -U postgres
 
 
 

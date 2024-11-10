@@ -10,8 +10,8 @@ const Home = ()=>{
     const ip = process.env.REACT_APP_IP
 
     const {profile, 
-        fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores,
-        activeChores, myActiveChores, myCompletedChores } = useContext(GlobalContext);
+        fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores, fetchLeaderboard,
+        activeChores, myActiveChores, myCompletedChores, leaderboard} = useContext(GlobalContext);
     
 
     
@@ -29,7 +29,10 @@ const Home = ()=>{
             await fetchActiveChores()
             await fetchMyActiveChores()
             await fetchMyCompletedChores()
+            await fetchLeaderboard()
+            console.log(leaderboard)
         }
+        
         fethData()
         
 
@@ -37,19 +40,31 @@ const Home = ()=>{
 
 
 
-
- 
-
     return(
         <div> 
             <Navbar></Navbar>
-            <div className='page'>Home
+            <div className='page'>
   
         {/*
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
         */}
+           
+            <div className='leaderboard'>
+                <p>Leaderboard </p> 
+                    {leaderboard.map((entry, index)=>{
+                        return <div>
+                            <div className='leaderboard-entry'>
+                                <p>{entry[0]}</p>
+                                <div className='leaderboard-divider'>-</div>
+                                <p> {entry[1]}</p>
+                            </div>
+                        </div>
+                    })}                
 
+                
+            </div>
+                        
             <div>
                 <p>Active Chores</p>
                 {activeChores.map((chore, index)=>{
