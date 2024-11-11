@@ -14,6 +14,7 @@ const Login = ()=>{
 
     const {profile, setProfile} = useContext(GlobalContext);
     const ip = process.env.REACT_APP_IP
+    const  port = process.env.REACT_APP_PORT
 
     const navigate = useNavigate()
 
@@ -28,7 +29,7 @@ const Login = ()=>{
         }
 
         try{
-            const response = await fetch(`http://${ip}:5000/login`, {
+            const response = await fetch(`http://${ip}:${port}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

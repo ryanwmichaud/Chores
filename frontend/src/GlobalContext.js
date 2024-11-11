@@ -7,6 +7,7 @@ export const GlobalContext = createContext()
 export const GlobalProvider = ({ children }) => {
 
     const ip = process.env.REACT_APP_IP
+    const port = process.env.REACT_APP_PORT
 
     const [profile, setProfile] = useState(null);
     const [activeChores, setActiveChores] = useState([])
@@ -16,7 +17,7 @@ export const GlobalProvider = ({ children }) => {
 
     const fetchActiveChores = async ()=> { 
         try {
-            const response = await fetch(`http://${ip}:5000/get-active-chores`)
+            const response = await fetch(`http://${ip}:${port}get-active-chores`)
             if (! response.ok){ 
                 throw new Error('network response was not ok')
             }
@@ -32,7 +33,7 @@ export const GlobalProvider = ({ children }) => {
     const fetchLeaderboard = async() => {
         try{
             
-            const response = await fetch(`http://${ip}:5000/get-leaderboard`)  
+            const response = await fetch(`http://${ip}:${port}/get-leaderboard`)  
             if (!response.ok){
                 throw new Error('resp not ok')
             }
@@ -50,7 +51,7 @@ export const GlobalProvider = ({ children }) => {
     const fetchMyActiveChores = async ()=> {
         const token = localStorage.getItem('token')
         try {
-            const response = await fetch(`http://${ip}:5000/get-my-active-chores`, {
+            const response = await fetch(`http://${ip}:${port}/get-my-active-chores`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -72,7 +73,7 @@ export const GlobalProvider = ({ children }) => {
     const fetchMyCompletedChores = async ()=> {
         const token = localStorage.getItem('token')
         try {
-            const response = await fetch(`http://${ip}:5000/get-my-completed-chores`, {
+            const response = await fetch(`http://${ip}:${port}/get-my-completed-chores`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -100,7 +101,7 @@ export const GlobalProvider = ({ children }) => {
         }
 
     try{
-        const response = await fetch(`http://${ip}:5000/mark-unfinished` ,{
+        const response = await fetch(`http://${ip}:${port}/mark-unfinished` ,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -133,7 +134,7 @@ export const GlobalProvider = ({ children }) => {
 
 
     try{
-        const response = await fetch(`http://${ip}:5000/mark-finished` ,{
+        const response = await fetch(`http://${ip}:${port}/mark-finished` ,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
