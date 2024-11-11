@@ -18,13 +18,12 @@ Competetive household chore management system
 
 ### To run the frontend development server locally:
 - `cd ./frontend` to navigate to the frontend folder.
-- From the backend folder, create a file called `.env`
-    - add the lines in the template file `/frontend/dotenv` filling in your ip address, database credentials, and jwt key
+- In the frontend folder, create a file called `.env`
+    - Add the lines to this file from the template file `/frontend/dotenv` filling in your ip address, database credentials, and jwt key
 - `npm start` to start the development server on localhost::3000.
 
 ### To run end to end browser tests
 - Start the front end and backend servers as detailed above
-- Ensure Python is installed
-- `pip install -r requirements.txt` to install python dependencies from the requirements.txt file.
+- From the root directory, run `pip install -r requirements.txt` to install python dependencies from the requirements.txt file.
 - `cd ./tests` to navigate to the tests folder
 - From the tests folder, run the command `python test_app.py` 

@@ -22,10 +22,10 @@ jwt = JWTManager(app)
 
 def get_db_connection():
     conn = psycopg2.connect(
-        host= os.getenv('CHORES_HOST'),
-        database= os.getenv('CHORES_DATABASE'),
-        user= os.getenv('CHORES_USER'), 
-        password= os.getenv('CHORES_DATABASE_PASSWORD') 
+        host= os.getenv('CHORES_DB_HOST'),
+        database= os.getenv('CHORES_DB_NAME'),
+        user= os.getenv('CHORES_DB_USER'), 
+        password= os.getenv('CHORES_DB_PASSWORD') 
     )
     return conn
 
@@ -164,7 +164,7 @@ def get_leaderboard():
     """) 
     results = cursor.fetchall()
     return jsonify({'results': results})
-
+    
 
 
 @app.route("/get-my-active-chores", methods=['Get'])

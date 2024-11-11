@@ -2,8 +2,8 @@
 FLASK_APP=server.py 
 
 #replace these fields
-CHORES_HOST=host_ip_address
-CHORES_DATABASE=db_name 
-CHORES_USER=db_username
-CHORES_DATABASE_PASSWORD=db_password
+CHORES_DB_HOST=host_ip_address
+CHORES_DB_NAME=db_name 
+CHORES_DB_USER=db_username
+CHORES_DB_PASSWORD=db_password
 JWT_KEY =jwt_key 

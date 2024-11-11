@@ -13,8 +13,8 @@ const Login = ()=>{
     const [error, setError] = useState('')
 
     const {profile, setProfile} = useContext(GlobalContext);
-    const ip = process.env.REACT_APP_IP
-    const  port = process.env.REACT_APP_PORT
+    const ip = process.env.REACT_APP_SERVER_IP
+    const  port = process.env.REACT_APP_SERVER_PORT
 
     const navigate = useNavigate()
 

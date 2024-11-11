@@ -1,0 +1,16 @@
+
+
+maybe all active chores in one place 
+    incomplete at the top sorted by due date. 
+    on completion, chores move to the bottom, tie breaking sort is by completion date
+
+rolling leaderboard can take chore cycles into account
+
+monthly chores can be weighted more than weekly
+
+scores should eventually be a ratio between actual and potential points in the rolling period
+    potential earnings are not equal for each user in a given chore cycles
+
+
+
+

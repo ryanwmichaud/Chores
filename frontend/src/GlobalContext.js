@@ -6,8 +6,8 @@ export const GlobalContext = createContext()
 //provider for the context
 export const GlobalProvider = ({ children }) => {
 
-    const ip = process.env.REACT_APP_IP
-    const port = process.env.REACT_APP_PORT
+    const ip = process.env.REACT_APP_SERVER_IP
+    const port = process.env.REACT_APP_SERVER_PORT
 
     const [profile, setProfile] = useState(null);
     const [activeChores, setActiveChores] = useState([])
