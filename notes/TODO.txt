@@ -11,6 +11,7 @@ monthly chores can be weighted more than weekly
 scores should eventually be a ratio between actual and potential points in the rolling period
     potential earnings are not equal for each user in a given chore cycles
 
+handle case where backend is down but front end is not
+    right now, dosent go home. keeps requesting
 
-
-
+dependency array home.js line 36. react doesnt like it. check it out. 
