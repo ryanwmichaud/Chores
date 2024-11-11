@@ -7,6 +7,7 @@ import {Chore, MyChore, MyCompletedChore} from '../components/chore.tsx';
 
 const Home = ()=>{
 
+
     const {profile, 
         fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores, fetchLeaderboard,
         activeChores, myActiveChores, myCompletedChores, leaderboard} = useContext(GlobalContext);
