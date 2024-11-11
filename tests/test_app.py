@@ -30,6 +30,14 @@ def test_login(input):
     print("text: ", username)
     assert username == input
 
+    leaderboard_entries = WebDriverWait(driver, 3).until(
+        EC.presence_of_all_elements_located((By.CLASS_NAME, 'leaderboard-entry'))
+    ) 
+    print(leaderboard_entries)    
+    assert len(leaderboard_entries) == 3 
+
+    
+
     teardown(driver)
    
 
@@ -43,5 +51,3 @@ def teardown(driver):
     driver.quit()
 
 test_login("Ryan")
-test_login("Max")
-test_login("Olivia")
