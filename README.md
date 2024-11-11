@@ -12,6 +12,8 @@ Competetive household chore management system
         - `flask --app server run --host=0.0.0.0` to  run the server on localhost::5000. 
             - Use the `--port` flag followed by a number to specify a different port. 
             - Use the `--debug` flag to run in development mode
+    - ** NOTE: you will need to use the port flag if you have specified a port **
+
 
 
 ### To run the frontend development server locally:

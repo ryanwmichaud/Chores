@@ -27,13 +27,12 @@ def test_login(input):
         EC.visibility_of_element_located((By.ID, "profile_username"))
     )
     username = profile_name.text
-    print("text: ", username)
+    print("Current leader: ", username)
     assert username == input
 
     leaderboard_entries = WebDriverWait(driver, 3).until(
         EC.presence_of_all_elements_located((By.CLASS_NAME, 'leaderboard-entry'))
     ) 
-    print(leaderboard_entries)    
     assert len(leaderboard_entries) == 3 
 
     
