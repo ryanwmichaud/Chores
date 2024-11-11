@@ -6,14 +6,12 @@ Competetive household chore management system
 - `pip install -r requirements.txt` to install python dependencies from the requirements.txt file.
 - `cd ./backend` to navigate to the backend folder.
 - From the backend folder, create a file called `.env`
-    - add the lines in the template file `/backend/dotenv` filling in your ip address, database credentials, and jwt key
+    - Add the lines from the template file `/backend/dotenv` filling in your ip address, database credentials, and jwt key
 - `python run.py` to run the start script or  `python run.py --debug` to automatically restart the server on changes to the code.
     - For more control, run the server manually as follows:
         - `flask --app server run --host=0.0.0.0` to  run the server on localhost::5000. 
             - Use the `--port` flag followed by a number to specify a different port. 
             - Use the `--debug` flag to run in development mode
-    - ** NOTE: you will need to use the port flag if you have specified a port **
-
 
 
 ### To run the frontend development server locally:

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import React, {useState, useContext, useEffect } from 'react'
+import React, {useState, useContext} from 'react'
 import { GlobalContext } from './../GlobalContext.js'; 
 import Navbar from '../components/Navbar.tsx';
 
@@ -12,7 +12,7 @@ const Login = ()=>{
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
 
-    const {profile, setProfile} = useContext(GlobalContext);
+    const {setProfile} = useContext(GlobalContext);
     
     const ip = process.env.REACT_APP_SERVER_IP
     const  port = process.env.REACT_APP_SERVER_PORT
@@ -46,7 +46,6 @@ const Login = ()=>{
             }else{
                 setProfile(req.username)
                 localStorage.setItem('token', data.token)
-                console.log("successful login")
                 navigate("/home")
             }
                 

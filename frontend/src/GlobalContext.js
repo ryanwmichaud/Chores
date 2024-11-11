@@ -38,7 +38,7 @@ export const GlobalProvider = ({ children }) => {
                 throw new Error('resp not ok')
             }
             const data = await response.json()
-            console.log(data, data.results)
+            //console.log(data, data.results)
             setLeaderboard(data.results)
         }catch(error){  
             console.error(error)

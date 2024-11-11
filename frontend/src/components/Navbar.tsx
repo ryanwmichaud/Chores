@@ -3,8 +3,7 @@ import { GlobalContext } from '../GlobalContext.js';
 
 
 const Navbar = ()=>{
-    const {profile, setProfile} = useContext(GlobalContext);
-    console.log(profile)
+    const {profile} = useContext(GlobalContext)
 
 
     return(

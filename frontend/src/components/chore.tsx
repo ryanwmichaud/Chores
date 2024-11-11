@@ -51,12 +51,12 @@ const Chore: React.FC<ChoreProps> = ( {username, chore, assigned, due } )=>{
 
 const MyChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
 
-    const{fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores, markFinished} = useContext(GlobalContext)
+    const{markFinished} = useContext(GlobalContext)
 
     
 
     const dateAssigned = new Date(assigned)
-    console.log(assigned, "to: ",dateAssigned.toLocaleDateString())
+    //console.log(assigned, "to: ",dateAssigned.toLocaleDateString())
     const dateDue = new Date(due)
 
     let overdue = false;
@@ -80,7 +80,7 @@ const MyChore: React.FC<ChoreProps> = ( {chore, assigned, due } )=>{
 const MyCompletedChore: React.FC<CompletedChoreProps> = ( {chore, assigned, due, completed } )=>{
 
 
-    const{fetchActiveChores, fetchMyActiveChores, fetchMyCompletedChores, markUnfinished} = useContext(GlobalContext)
+    const{markUnfinished} = useContext(GlobalContext)
 
     
     const dateAssigned = new Date(assigned)

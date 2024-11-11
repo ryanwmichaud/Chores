@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../GlobalContext.js'; 
 import Navbar from '../components/Navbar.tsx';
@@ -29,7 +29,6 @@ const Home = ()=>{
             await fetchMyActiveChores()
             await fetchMyCompletedChores()
             await fetchLeaderboard()
-            console.log(leaderboard)
         }
         
         fethData()
