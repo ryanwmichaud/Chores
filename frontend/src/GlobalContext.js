@@ -14,7 +14,7 @@ export const GlobalProvider = ({ children }) => {
     const [myCompletedChores, setMyCompletedChores] = useState([])
     const [leaderboard, setLeaderboard] = useState([])
 
-    const fetchActiveChores = async ()=> {
+    const fetchActiveChores = async ()=> { 
         try {
             const response = await fetch(`http://${ip}:5000/get-active-chores`)
             if (! response.ok){ 
