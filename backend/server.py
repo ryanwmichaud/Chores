@@ -47,7 +47,6 @@ def mark_finished():
     def mark_finished_post():
     
         current_user = get_jwt_identity()
-        print(current_user) 
         
         data = request.json
         conn = get_db_connection() 
@@ -164,7 +163,6 @@ def get_leaderboard():
         ORDER BY score DESC;
     """) 
     results = cursor.fetchall()
-    print(results)
     return jsonify({'results': results})
 
 
