@@ -1,2 +1,2 @@
-REACT_APP_IP = 
-REACT_APP_PORT =  
+REACT_APP_IP=react_dev_server_ip
+REACT_APP_PORT = react_dev_server_port
