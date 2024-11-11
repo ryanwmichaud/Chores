@@ -1,0 +1,9 @@
+
+FLASK_APP=server.py 
+
+#replace these fields
+HOST=host_ip_address
+DATABASE=db_name 
+USER=db_username
+DATABASE_PASSWORD=db_password
+JWT_KEY =jwt_key 
