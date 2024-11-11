@@ -22,10 +22,10 @@ jwt = JWTManager(app)
 
 def get_db_connection():
     conn = psycopg2.connect(
-        host= os.getenv('HOST'),
-        database= os.getenv('DATABASE'),
-        user= os.getenv('USER'), 
-        password= os.getenv('DATABASE_PASSWORD') 
+        host= os.getenv('CHORES_HOST'),
+        database= os.getenv('CHORES_DATABASE'),
+        user= os.getenv('CHORES_USER'), 
+        password= os.getenv('CHORES_DATABASE_PASSWORD') 
     )
     return conn
 
@@ -46,7 +46,8 @@ def mark_finished():
     @jwt_required()
     def mark_finished_post():
     
-        current_user = get_jwt_identity() 
+        current_user = get_jwt_identity()
+        print(current_user) 
         
         data = request.json
         conn = get_db_connection() 

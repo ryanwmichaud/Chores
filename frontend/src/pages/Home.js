@@ -51,7 +51,7 @@ const Home = ()=>{
             <div id='leaderboard'>
                 <p>Leaderboard </p> 
                     {leaderboard.map((entry, index)=>{
-                        return <div>
+                        return <div key={index}>
                             <div className='leaderboard-entry'>
                                 <p>{entry[0]}</p>
                                 <div className='leaderboard-divider'>-</div>
