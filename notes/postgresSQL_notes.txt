@@ -40,16 +40,52 @@ describe table
 
 
 INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
- VALUES (5, 11, '2024-10-01', '2024-10-31' );
+VALUES (5, 8, '2024-11-10', '2024-11-17' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (8, 7, '2024-11-10', '2024-11-17' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (9, 5, '2024-11-10', '2024-11-17' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (9, 6, '2024-11-10', '2024-11-17' );
+
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (5, 13, '2024-11-01', '2024-12-01' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (5, 14, '2024-11-01', '2024-12-01' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (8, 11, '2024-11-01', '2024-12-01' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (8, 12, '2024-11-01', '2024-12-01' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (9, 9, '2024-11-01', '2024-12-01' );
+INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
+VALUES (9, 10, '2024-11-01', '2024-12-01' );
+
+
 
  INSERT INTO assignments (user_id, chore_id, date_assigned, date_due, completed_at)
  VALUES (5, , '2024-09-01', '2024-09-30', NOW());
 
 
+        5 | Take out garbage        | weekly
+        6 | Vacuum                  | weekly
+        7 | Tidy up common space    | weekly
+        8 | Wash dirty rags         | weekly
+        
+        9 | Dust                    | monthly
+       10 | Clean windows           | monthly
+       11 | Mop                     | monthly
+       12 | Recycle junk mail boxes | monthly
+       13 | Clean microwave         | monthly
+       14 | Refrigerator            | monthly       
 
 
+5 Ryan
+8 Max
+9 Olivia
+        
 
-
+        
 
 
 

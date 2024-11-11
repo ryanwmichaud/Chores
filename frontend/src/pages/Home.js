@@ -50,7 +50,7 @@ const Home = ()=>{
             {error && <p>Error: {error}</p>}
         */}
            
-            <div className='leaderboard'>
+            <div id='leaderboard'>
                 <p>Leaderboard </p> 
                     {leaderboard.map((entry, index)=>{
                         return <div>
@@ -62,7 +62,6 @@ const Home = ()=>{
                         </div>
                     })}                
 
-                
             </div>
                         
             <div>
