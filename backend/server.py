@@ -150,17 +150,13 @@ def get_leaderboard():
     cursor.execute("""
         SELECT
             users.username,
-            COALESCE (
-                 SUM(
-                    CASE
-                        WHEN assignments.completed_at IS NULL THEN 0
-                        WHEN assignments.completed_at <= assignments.date_due THEN 10
-                        ELSE 5
-                    END
-                ),
-                0            
-            )
-            AS score
+            SUM(
+                CASE
+                    WHEN assignments.completed_at IS NULL THEN 0
+                    WHEN assignments.completed_at <= assignments.date_due THEN 10
+                    ELSE 5
+                END
+            ) AS score
         FROM users LEFT JOIN assignments ON users.user_id = assignments.user_id
         WHERE assignments.completed_at >= NOW() - INTERVAL '30 days' OR assignments.completed_at IS NULL
         GROUP BY users.user_id
