@@ -158,7 +158,7 @@ def get_leaderboard():
                 END
             ) AS score
         FROM users LEFT JOIN assignments ON users.user_id = assignments.user_id
-        WHERE assignments.completed_at >= NOW() - INTERVAL '30 days' OR assignments.completed_at IS NULL
+        WHERE assignments.date_due >= NOW() - INTERVAL '30 days' OR assignments.completed_at IS NULL
         GROUP BY users.user_id
         ORDER BY score DESC;
     """) 
