@@ -15,14 +15,14 @@ const Home = ()=>{
 
     
     const navigate = useNavigate()
-    if (profile === null){
-        navigate("/")
-    }
-
 
 
 
     useEffect(()=>{
+        
+        if (profile === null){
+            navigate("/")
+        }
 
         const fethData = async () =>{
             await fetchActiveChores()

@@ -15,15 +15,17 @@ export const GlobalProvider = ({ children }) => {
     const [myCompletedChores, setMyCompletedChores] = useState([])
     const [leaderboard, setLeaderboard] = useState([])
 
-    const fetchActiveChores = async ()=> { 
+    const fetchActiveChores = async ()=> {
+        
         try {
-            const response = await fetch(`http://${ip}:${port}get-active-chores`)
+            const response = await fetch(`http://${ip}:${port}/get-active-chores`)
             if (! response.ok){ 
                 throw new Error('network response was not ok')
             }
             const data = await response.json() 
             setActiveChores(data)
         } catch (error) {
+            console.log("fac error", error) 
             //setError(error.message)
         } finally { 
             //setLoading(false) 

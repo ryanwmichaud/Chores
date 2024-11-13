@@ -124,6 +124,7 @@ def login():
 
 @app.route("/get-active-chores", methods=['GET'])
 def get_active_chores():
+    
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("""SELECT username, description, date_assigned, date_due
