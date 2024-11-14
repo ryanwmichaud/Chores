@@ -1,0 +1,34 @@
+
+
+.chore{
+    border: solid black 2px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.chore-title{
+    display: flex;
+    flex-direction: row;
+}
+
+.title-divider{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+
+
+.pending{
+    background-color: #eec38c;
+}
+
+.overdue{
+    background-color: #af5f5f;
+}
+
+.completed{
+    background-color: #57a76d;
+}
+.completed-late{
+    background-color: #b9e4be;
+}

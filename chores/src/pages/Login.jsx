@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import React, {useState, useContext} from 'react'
-import { GlobalContext } from './../GlobalContext.js'; 
+import { GlobalContext } from '../GlobalContext.jsx'; 
 import Navbar from '../components/Navbar.tsx';
 
 
@@ -14,8 +14,8 @@ const Login = ()=>{
 
     const {setProfile} = useContext(GlobalContext);
     
-    const ip = process.env.REACT_APP_SERVER_IP
-    const  port = process.env.REACT_APP_SERVER_PORT
+    const ip = import.meta.env.VITE_SERVER_IP
+    const  port = import.meta.env.VITE_SERVER_PORT
 
     const navigate = useNavigate()
 

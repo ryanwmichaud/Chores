@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { GlobalContext } from '../GlobalContext.js'; 
+import { GlobalContext } from '../GlobalContext.jsx'; 
 import Navbar from '../components/Navbar.tsx';
 import {Chore, MyChore, MyCompletedChore} from '../components/chore.tsx';
 

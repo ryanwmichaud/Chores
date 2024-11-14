@@ -1,0 +1,29 @@
+.page{
+    margin-top: 70px;
+    background-color: var(--primary-color);
+    padding: 40px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+label{
+    color: black;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderboard-entry{
+    display: flex;
+    align-items: center;
+}
+
+.leaderboard-divider{
+    margin-left: 5px;
+    margin-right: 5px;
+}

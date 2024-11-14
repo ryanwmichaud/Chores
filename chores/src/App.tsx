@@ -3,16 +3,17 @@ import "./components/Navbar.css"
 import "./components/Chore.css"
 import "./pages/Pages.css"
 
-import React from 'react'
+import "./components/Navbar.css"
+import "./components/Chore.css"
+import "./pages/Pages.css"
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Login from './pages/Login.js'
-import Home from './pages/Home.js'
-import {GlobalProvider} from './GlobalContext.js'
+import Login from './pages/Login.jsx'
+import Home from './pages/Home.jsx'
+import {GlobalProvider} from './GlobalContext.jsx'
 
 
-
-const App =  () => {
+function App() {
 
   return(
     <GlobalProvider>
@@ -30,4 +31,4 @@ const App =  () => {
   )
 }
 
-export default App;
+export default App
