@@ -37,30 +37,7 @@ show tables
 describe table 
 \d table_name; 
 
-
-
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (5, 8, '2024-11-10', '2024-11-17' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (8, 7, '2024-11-10', '2024-11-17' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (9, 5, '2024-11-10', '2024-11-17' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (9, 6, '2024-11-10', '2024-11-17' );
-
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (5, 13, '2024-11-01', '2024-12-01' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (5, 14, '2024-11-01', '2024-12-01' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (8, 11, '2024-11-01', '2024-12-01' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (8, 12, '2024-11-01', '2024-12-01' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (9, 9, '2024-11-01', '2024-12-01' );
-INSERT INTO assignments (user_id, chore_id, date_assigned, date_due)
-VALUES (9, 10, '2024-11-01', '2024-12-01' );
-
+\l list all dbs
 
 
  INSERT INTO assignments (user_id, chore_id, date_assigned, date_due, completed_at)

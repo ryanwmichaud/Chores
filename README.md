@@ -18,7 +18,21 @@ Competetive household chore management system
 - `cd ./frontend` to navigate to the frontend folder.
 - In the frontend folder, create a file called `.env`
     - Add the lines to this file from the template file `/frontend/dotenv` filling in the ip address and port of your backend server
-- `npm run dev` to start the development server on localhost::3000.
+- `npm run dev` to start the development server locally.
+
+### To set up a database 
+- Ensure that postgreSQL is installed and an account is created
+- From the root project directory, log in to the psql terminal with `psql -U your_username`
+- Create a new database from the psql terminal with `CREATE DATABASE database_name;`
+    - You can name the database anything you'd like as long as it is consistent with the .env file in the backend folder. The above command names the new databse "database_name"
+- Connect to the new database with `\c database_name`
+- Copy the database schema with `\i ./schema.sql`
+
+
+Create a postgreSQL databse with `psql -U your_username -h your_db_host -c "CREATE DATABASE your_db_name;`
+    - Replace your_db_name with the preferred name of your database. Make sure it's consistent in the .env file in the backend folder. Similarly replace your username and host with your own credentials. You will be prompted for your password. 
+
+
 
 ### To run end to end browser tests
 - Start the front end and backend servers as detailed above
