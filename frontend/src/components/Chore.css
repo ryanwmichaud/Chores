@@ -3,18 +3,36 @@
 .chore{
     border: solid black 2px;
     margin-bottom: 5px;
-    padding: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .chore-title{
     display: flex;
     flex-direction: row;
+    width: 0.4;
 }
-
+.chore-dates{
+    display: flex;
+    flex-direction: column;
+    width: 0.4;
+}
 .title-divider{
     margin-left: 3px;
     margin-right: 3px;
 }
+
+
+
+.chore-body{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
 
 
 
