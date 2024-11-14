@@ -27,6 +27,7 @@ Competetive household chore management system
     - You can name the database anything you'd like as long as it is consistent with the .env file in the backend folder. The above command names the new databse "database_name"
 - Connect to the new database with `\c database_name`
 - Copy the database schema with `\i ./schema.sql`
+    - This file path assumes the psql terminal was launched from the root directory of the project
 
 
 Create a postgreSQL databse with `psql -U your_username -h your_db_host -c "CREATE DATABASE your_db_name;`
