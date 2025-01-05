@@ -15,10 +15,12 @@ export const GlobalProvider = ({ children }) => {
     const [myCompletedChores, setMyCompletedChores] = useState([])
     const [leaderboard, setLeaderboard] = useState([])
 
+    const url = `http://${ip}:${port}`
+
     const fetchActiveChores = async ()=> {
         
         try {
-            const response = await fetch(`http://${ip}:${port}/get-active-chores`)
+            const response = await fetch(`${url}/get-active-chores`)
             if (! response.ok){ 
                 throw new Error('network response was not ok')
             }
@@ -35,7 +37,7 @@ export const GlobalProvider = ({ children }) => {
     const fetchLeaderboard = async() => {
         try{
             
-            const response = await fetch(`http://${ip}:${port}/get-leaderboard`)  
+            const response = await fetch(`${url}/get-leaderboard`)  
             if (!response.ok){
                 throw new Error('resp not ok')
             }
@@ -53,7 +55,7 @@ export const GlobalProvider = ({ children }) => {
     const fetchMyActiveChores = async ()=> {
         const token = localStorage.getItem('token')
         try {
-            const response = await fetch(`http://${ip}:${port}/get-my-active-chores`, {
+            const response = await fetch(`${url}/get-my-active-chores`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -75,7 +77,7 @@ export const GlobalProvider = ({ children }) => {
     const fetchMyCompletedChores = async ()=> {
         const token = localStorage.getItem('token')
         try {
-            const response = await fetch(`http://${ip}:${port}/get-my-completed-chores`, {
+            const response = await fetch(`${url}/get-my-completed-chores`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -103,7 +105,7 @@ export const GlobalProvider = ({ children }) => {
         }
 
     try{
-        const response = await fetch(`http://${ip}:${port}/mark-unfinished` ,{
+        const response = await fetch(`${url}/mark-unfinished` ,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -136,7 +138,7 @@ export const GlobalProvider = ({ children }) => {
 
 
     try{
-        const response = await fetch(`http://${ip}:${port}/mark-finished` ,{
+        const response = await fetch(`${url}/mark-finished` ,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',

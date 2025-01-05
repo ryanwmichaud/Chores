@@ -19,7 +19,7 @@ args.append("run")
 
 args.append("--host=0.0.0.0")
 
-#args.append("--port=5001")
+args.append("--port=5001")
 
 if len(sys.argv) ==2:
     if sys.argv[1] == "--debug":

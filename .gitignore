@@ -4,6 +4,7 @@
 frontend/node_modules
 frontend/.pnp
 frontend/.pnp.js
+backend/chores
 
 # production
 frontend/build
@@ -23,4 +24,4 @@ frontend/yarn-error.log*
 #Backend
 
 backend/.env
-backend/__pycache__
+backend/__pycache__ 
